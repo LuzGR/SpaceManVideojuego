@@ -1,4 +1,4 @@
-using System.Collections;
+ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -16,6 +16,8 @@ public class GameManager : MonoBehaviour{
     public static GameManager sharedInstance;
 
     private PlayerController controller;
+
+    public int collectedObject = 0;
 
     void Awake(){
 
@@ -74,6 +76,10 @@ public class GameManager : MonoBehaviour{
             MenuManager.sharedInstance.ShowGameOverMenu();
         }
         this.currentGameState = newGameSate; 
+    }
+    public void CollectObject(Collectable collectable)
+    {
+        collectedObject += collectable.value;
     }
 
 }
